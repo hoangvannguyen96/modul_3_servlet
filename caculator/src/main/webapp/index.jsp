@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 <td><h4>Operater</h4></td>
-                <td><select name="operater">
+                <td><select name="operator">
                     <option value="+">Add</option>
                     <option value="-">Sub</option>
                     <option value="*">Mul</option>
