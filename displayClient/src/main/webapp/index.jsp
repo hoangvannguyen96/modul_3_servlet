@@ -13,13 +13,7 @@
 <body>
 <h1 class="text-center"><%= "DANH SÁCH KHÁCH HÀNG" %>
 </h1>
-<br/>
-<form>
-    <%
-        List<Client> clients = new ArrayList<>();
-    clients.add(new Client("Mai Văn Hoàn","20/08/83","Hà Nội","https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2020/8/17/828712/Lay-Danh-Nghia-Nguoi-05.jpg"));
-    clients.add(new Client("Nguyễn Văn Nam","20/08/83","Hà Nội","https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2020/8/17/828712/Lay-Danh-Nghia-Nguoi-05.jpg"));
-    %>
+<form action="displayClient" method="get">
     <table class="table">
         <tr>
             <th>Tên</th>
@@ -27,16 +21,16 @@
             <th>Địa chỉ</th>
             <th>Ảnh</th>
         </tr>
-        <%  for (Client client : clients){%>
+        <c:forEach var="client" items="${clients}">
         <tr>
-            <td><%=client.getName()%></td>
-            <td><%=client.getDate()%></td>
-            <td><%=client.getAddress()%></td>
+            <td>${client.getName()}</td>
+            <td>${client.getDate()}</td>
+            <td>${client.getAddress()}</td>
             <td>
-                <img style="width: 50px; height: 50px" src="<%=client.getImg()%>">
+                <img style="width: 50px; height: 50px" src="${client.getImg()}">
             </td>
         </tr>
-        <%} %>
+        </c:forEach>
     </table>
 </form>
 </body>
