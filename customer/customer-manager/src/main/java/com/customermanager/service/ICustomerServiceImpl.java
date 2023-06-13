@@ -7,8 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CustomerServiceImpl implements CustomerService{
+public class ICustomerServiceImpl implements ICustomerService {
     private static Map<Integer, Customer> customers;
+
     static {
         customers = new HashMap<>();
 
@@ -20,14 +21,20 @@ public class CustomerServiceImpl implements CustomerService{
         customers.put(6, new Customer(6, "Rose", "rose@codegym.vn", "Newyork"));
 
     }
+
     @Override
     public List<Customer> findAll() {
         return new ArrayList<>(customers.values());
     }
 
     @Override
+    public List<Customer> findAllAfterDelete() {
+        return new ArrayList<>(customers.values());
+    }
+
+    @Override
     public void save(Customer customer) {
-        customers.put(customer.getId(), customer);
+        customers.put(customer.getIdCustomer(), customer);
     }
 
     @Override

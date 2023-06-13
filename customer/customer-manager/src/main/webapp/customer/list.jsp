@@ -5,6 +5,7 @@
     <title>Customer List</title>
 </head>
 <body>
+<form method="post"></form>
 <h1>Customers</h1>
 <p>
     <a href="/customers?action=create">Create new customer</a>
@@ -14,16 +15,17 @@
         <td>Name</td>
         <td>Email</td>
         <td>Address</td>
-        <td>Edit</td>
-        <td>Delete</td>
+        <td>Type</td>
+        <td>Action</td>
     </tr>
-    <c:forEach items='${requestScope["customers"]}' var="customer">
+    <c:forEach items='${requestScope.customers}' var="customer">
         <tr>
-            <td><a href="/customers?action=view&id=${customer.getId()}">${customer.getName()}</a></td>
+            <td><a href="/customers?action=view&id=${customer.getIdCustomer()}">${customer.getName()}</a></td>
             <td>${customer.getEmail()}</td>
             <td>${customer.getAddress()}</td>
-            <td><a href="/customers?action=edit&id=${customer.getId()}">edit</a></td>
-            <td><a href="/customers?action=delete&id=${customer.getId()}">delete</a></td>
+            <td>${customer.getCustomerType().getNameType()}</td>
+            <td><a href="/customers?action=edit&id=${customer.getIdCustomer()}">edit</a></td>
+            <td><a href="/customers?action=delete&id=${customer.getIdCustomer()}">delete</a></td>
         </tr>
     </c:forEach>
 </table>
